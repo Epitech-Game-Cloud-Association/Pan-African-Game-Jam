@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx6r0r1r1r1r1"]
+
+[ext_resource type="Script" path="res://scripts/world/UnstableZone.gd" id="1_1"]
+
+[node name="UnstableZone" type="Area2D" groups=["unstable_zones"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.8, 0.2, 0.2, 0.6)
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)

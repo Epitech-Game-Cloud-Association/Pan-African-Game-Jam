@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://da6rvxbhqwyj8"]
+
+[ext_resource type="Script" path="res://scripts/world/zone_inverse.gd" id="1_kkeoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwb7l"]
+size = Vector2(800, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmvqh"]
+size = Vector2(1600, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3huu"]
+size = Vector2(1600, 32)
+
+[node name="R11_ChambreDesEchos" type="Node2D"]
+script = ExtResource("1_kkeoo")
+
+[node name="ZoneArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneArea"]
+position = Vector2(400, 224)
+shape = SubResource("RectangleShape2D_iwb7l")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+layer_0/name = "Background"
+layer_1/name = "Midground"
+layer_2/name = "Collision"
+layer_3/name = "Decor"
+layer_4/name = "Layer4"
+
+[node name="RoomCamera" type="Camera2D" parent="."]
+position = Vector2(400, 224)
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 448
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="KillZoneBottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZoneBottom"]
+position = Vector2(400, 464)
+shape = SubResource("RectangleShape2D_lmvqh")
+
+[node name="KillZoneTop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZoneTop"]
+position = Vector2(400, -16)
+shape = SubResource("RectangleShape2D_s3huu")
+
+[node name="Entities" type="Node2D" parent="."]

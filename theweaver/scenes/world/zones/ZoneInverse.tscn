@@ -1,6 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://bosu3jsf8ykqd"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scripts/world/zone_inverse.gd" id="1_28dy6"]
+[ext_resource type="Script" path="res://scripts/world/zone_inverse.gd" id="1_1"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_1"]
+[ext_resource type="PackedScene" path="res://scenes/world/UnstableZone.tscn" id="3_1"]
+[ext_resource type="PackedScene" path="res://scenes/world/Checkpoint.tscn" id="4_1"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_28dy6")
+[node name="ZoneInverse" type="Node2D"]
+script = ExtResource("1_1")
+zone_name = "ZoneInverse"
+gravity_inverted = true
+
+[node name="ZoneArea" type="Area2D" parent="."]
+position = Vector2(0, 0)
+groups = ["zone_areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ZoneArea"]
+polygon = PackedVector2Array(-600, -400, 2200, -400, 2200, 800, -600, 800)
+
+[node name="KillZoneTop" type="Area2D" parent="."]
+position = Vector2(0, 0)
+groups = ["killzones"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillZoneTop"]
+polygon = PackedVector2Array(-2000, -800, 4000, -800, 4000, -400, -2000, -400)
+
+[node name="KillZoneBottom" type="Area2D" parent="."]
+position = Vector2(0, 0)
+groups = ["killzones"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillZoneBottom"]
+polygon = PackedVector2Array(-2000, 800, 4000, 800, 4000, 1200, -2000, 1200)
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(400, 150)
+current = true
+limit_top = -400
+limit_bottom = 900
+limit_left = -600
+limit_right = 2200
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+zoom = Vector2(1, 1)
+
+[node name="Terrain" type="StaticBody2D" parent="." groups=["terrain"]]
+collision_mask = 0
+
+[node name="Floor" type="CollisionPolygon2D" parent="Terrain"]
+polygon = PackedVector2Array(-500, 600, 2000, 600, 2000, 700, -500, 700)
+
+[node name="FloorVis" type="Polygon2D" parent="Terrain"]
+color = Color(0.2, 0.2, 0.2, 1)
+polygon = PackedVector2Array(-500, 600, 2000, 600, 2000, 700, -500, 700)
+
+[node name="CeilingPart1" type="CollisionPolygon2D" parent="Terrain"]
+polygon = PackedVector2Array(-500, -200, 1000, -200, 1000, -300, -500, -300)
+
+[node name="CeilingVis1" type="Polygon2D" parent="Terrain"]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(-500, -200, 1000, -200, 1000, -300, -500, -300)
+
+[node name="CeilingPart2" type="CollisionPolygon2D" parent="Terrain"]
+polygon = PackedVector2Array(1300, -200, 2000, -200, 2000, -300, 1300, -300)
+
+[node name="CeilingVis2" type="Polygon2D" parent="Terrain"]
+color = Color(0.25, 0.25, 0.25, 1)
+polygon = PackedVector2Array(1300, -200, 2000, -200, 2000, -300, 1300, -300)
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Platform1" type="StaticBody2D" parent="Obstacles" groups=["terrain"]]
+position = Vector2(400, -100)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Platform1"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, -100, 0, -100)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/Platform1"]
+color = Color(0.3, 0.3, 0.3, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, -100, 0, -100)
+
+[node name="Platform2" type="StaticBody2D" parent="Obstacles" groups=["terrain"]]
+position = Vector2(700, -50)
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/Platform2"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, -150, 0, -150)
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacles/Platform2"]
+color = Color(0.3, 0.3, 0.3, 1)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, -150, 0, -150)
+
+[node name="UnstableZone" parent="." instance=ExtResource("3_1")]
+position = Vector2(1500, -100)
+
+[node name="Checkpoint" parent="." instance=ExtResource("4_1")]
+position = Vector2(1800, -150)
+checkpoint_id = 1
+
+[node name="Player" parent="." instance=ExtResource("2_1")]
+position = Vector2(100, 500)
