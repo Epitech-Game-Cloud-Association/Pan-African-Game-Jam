@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://dhf48rhsmpc1l" path="res://scripts/boss/Pullsering.gd" id="1_pulsering"]
+
+[sub_resource type="CircleShape2D" id="1_shape"]
+radius = 10.0
+
+[node name="PulseRing" type="Area2D" groups=["boss_projectile"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_pulsering")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1_shape")
+disabled = false
+
+[node name="VisualRing" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="VisualRing"]
+points = PackedVector2Array()
+width = 3.0
+default_color = Color(0.85, 0.1, 0.1, 1.0)
