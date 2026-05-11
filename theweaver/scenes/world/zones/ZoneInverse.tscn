@@ -1,6 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://bosu3jsf8ykqd"]
 
-[ext_resource type="Script" path="res://scripts/world/zone_inverse.gd" id="1_28dy6"]
+[ext_resource type="Script" path="res://scripts/world/zone_inverse.gd" id="1_zoneinv"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_28dy6")
+[node name="ZoneInverse" type="Node2D"]
+script = ExtResource("1_zoneinv")
+
+[node name="TileMap" type="TileMap" parent="."]
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="UnstableZones" type="Node2D" parent="."]
+
+[node name="LorePickups" type="Node2D" parent="."]
+
+[node name="ExitRift" type="Node2D" parent="."]
+
+[node name="Background" type="ParallaxBackground" parent="."]

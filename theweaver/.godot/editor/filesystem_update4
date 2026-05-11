@@ -1,0 +1,6 @@
+res://scripts/world/checkpoint.gd
+res://scripts/world/exit_rift.gd
+res://scripts/core/game_manager.gd
+res://scripts/core/input_handler.gd
+res://scripts/world/lore_pickup.gd
+res://scripts/core/scene_transition.gd

@@ -1,11 +1,13 @@
-extends Node2D
+## main_menu.gd
+## Écran principal — bouton PLAY, SETTINGS, version.
+## (Stub — GD1 implémente la scène complète)
+extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+
+func _on_play_pressed() -> void:
+	SceneTransition.change_scene("res://scenes/world/zones/ZoneInverse.tscn")
+
+func _on_settings_pressed() -> void:
+	SceneTransition.change_scene("res://scenes/ui/Settings.tscn")

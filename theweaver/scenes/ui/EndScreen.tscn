@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://endscreen0001"]
+
+[ext_resource type="Script" path="res://scripts/ui/end_screen.gd" id="1_endscr"]
+
+[node name="EndScreen" type="Control"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_endscr")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.02, 0.12, 1.0)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = -180.0
+offset_top = -200.0
+offset_right = 180.0
+offset_bottom = 200.0
+theme_override_constants/separation = 32
+
+[node name="TitleLabel" type="Label" parent="VBox"]
+text = "THE RIFT AWAITS"
+horizontal_alignment = 1
+modulate = Color(1.0, 0.85, 0.3, 1.0)
+
+[node name="SubLabel" type="Label" parent="VBox"]
+text = "What will you do, Weaver?"
+horizontal_alignment = 1
+modulate = Color(0.8, 0.7, 1.0, 0.8)
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 32)
+
+[node name="ButtonRepair" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 88)
+text = "⟵  REPAIR THE RIFT"
+modulate = Color(0.4, 1.0, 0.7, 1.0)
+
+[node name="ButtonTear" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 88)
+text = "TEAR IT FURTHER  ⟶"
+modulate = Color(1.0, 0.3, 0.3, 1.0)

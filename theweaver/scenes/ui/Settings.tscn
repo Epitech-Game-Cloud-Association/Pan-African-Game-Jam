@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://settings0001"]
+
+[ext_resource type="Script" path="res://scripts/ui/settings.gd" id="1_settings"]
+
+[node name="Settings" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.02, 0.12, 1.0)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = -160.0
+offset_top = -140.0
+offset_right = 160.0
+offset_bottom = 140.0
+theme_override_constants/separation = 24
+
+[node name="TitleLabel" type="Label" parent="VBox"]
+text = "SETTINGS"
+horizontal_alignment = 1
+modulate = Color(1.0, 0.85, 0.3, 1.0)
+
+[node name="VolumeLabel" type="Label" parent="VBox"]
+text = "Volume"
+modulate = Color(0.8, 0.7, 1.0, 0.9)
+
+[node name="VolumeSlider" type="HSlider" parent="VBox"]
+custom_minimum_size = Vector2(0, 44)
+min_value = 0.0
+max_value = 1.0
+value = 0.8
+step = 0.05
+
+[node name="LangLabel" type="Label" parent="VBox"]
+text = "Language"
+modulate = Color(0.8, 0.7, 1.0, 0.9)
+
+[node name="LangButton" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 56)
+text = "FR / EN"
+
+[node name="BackButton" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 64)
+text = "← BACK"

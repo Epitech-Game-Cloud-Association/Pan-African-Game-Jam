@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16">
+  <rect width="32" height="16" fill="#D4C9A8" rx="2"/>
+  <rect x="1" y="1" width="30" height="14" fill="none" stroke="#B8A87C" stroke-width="1"/>
+  <!-- Carved chevron -->
+  <polyline points="4,8 8,4 12,8 16,4 20,8 24,4 28,8"
+    stroke="#8B7355" stroke-width="1.2" fill="none"/>
+  <!-- Teal glow on top edge -->
+  <rect x="0" y="0" width="32" height="2" fill="#44DDCC" opacity="0.4" rx="1"/>
+</svg>

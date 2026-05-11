@@ -1,6 +1,69 @@
 [gd_scene load_steps=2 format=3 uid="uid://djvbxsbr5ia2m"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_6juts"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_mainmenu"]
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_6juts")
+[node name="MainMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mainmenu")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.02, 0.12, 1.0)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = -150.0
+offset_top = -180.0
+offset_right = 150.0
+offset_bottom = 180.0
+theme_override_constants/separation = 32
+
+[node name="TitleLabel" type="Label" parent="VBox"]
+text = "THE WEAVER"
+horizontal_alignment = 1
+modulate = Color(1.0, 0.85, 0.3, 1.0)
+
+[node name="SubLabel" type="Label" parent="VBox"]
+text = "GameCloud · Pan African Game Jam"
+horizontal_alignment = 1
+modulate = Color(0.7, 0.6, 1.0, 0.7)
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 32)
+
+[node name="ButtonPlay" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 80)
+text = "PLAY"
+modulate = Color(0.4, 1.0, 0.7, 1.0)
+
+[node name="ButtonSettings" type="Button" parent="VBox"]
+custom_minimum_size = Vector2(0, 64)
+text = "SETTINGS"
+
+[node name="VersionLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_left = -60.0
+offset_top = -28.0
+offset_right = 60.0
+offset_bottom = -8.0
+text = "v0.1 — prototype"
+horizontal_alignment = 1
+modulate = Color(0.5, 0.5, 0.5, 0.5)
